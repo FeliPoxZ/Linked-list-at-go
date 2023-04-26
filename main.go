@@ -30,7 +30,27 @@ func main() {
 	value := List.Get(lista, 2)
 	fmt.Println("valor retornado ->", value)
 
-	List.Set(lista, 4, 12)
+	//List.Set(lista, 4, 12)
+	List.Insert(lista, 2, 11)
 	List.Display(lista)
+
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
+	value = List.Remove(lista, 0)
+	List.Display(lista)
+	fmt.Println("valor removido -> ", value)
 
 }
