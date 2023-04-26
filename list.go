@@ -44,6 +44,11 @@ func Display(list *List) {
 }
 
 func Remove(list *List, index int) int { //caçar erro dps
+	if list.head == nil {
+		fmt.Println("ERRO EMPTY LIST")
+		return -1
+	}
+
 	if index == 0 {
 		value := list.head.data
 		list.head = list.head.next
@@ -68,6 +73,10 @@ func Remove(list *List, index int) int { //caçar erro dps
 }
 
 func Get(list *List, index int) int {
+	if list.head == nil {
+		fmt.Println("ERRO EMPTY LIST")
+		return -1
+	}
 	if index == 0 {
 		return list.head.data
 	}
@@ -84,6 +93,10 @@ func Get(list *List, index int) int {
 }
 
 func Set(list *List, index int, value int) {
+	if list.head == nil {
+		fmt.Println("ERRO EMPTY LIST")
+		return
+	}
 	if index == 0 {
 		list.head.data = value
 	}
@@ -98,8 +111,24 @@ func Set(list *List, index int, value int) {
 	fmt.Println("Invalid index")
 }
 
-// func Insert (list *List, index int, value int) {
-// 	if index == 0 {
-// 		new_node := &Node
-// 	}
-// }
+func Insert(list *List, index int, value int) {
+	if index == 0 {
+		new_node := &Node{data: value, next: list.head}
+		list.head = new_node
+		return
+	}
+
+	count := 0
+	current := list.head
+
+	for current != nil {
+		if count == index-1 {
+			new_node := &Node{data: value, next: current.next}
+			current.next = new_node
+			return
+		}
+		count++
+		current = current.next
+	}
+
+}
